@@ -243,7 +243,7 @@
                     console.log('数据异常')
                 }).always(function () {
                     self.isLoading = false;
-                    self.$page.find('.loading').show()
+                    self.$page.find('.loading').hide();
                 })
             },
             render: function (data) {
