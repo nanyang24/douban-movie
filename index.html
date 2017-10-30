@@ -48,10 +48,6 @@
             display: none;
         }
 
-        main section:first-child {
-            display: block;
-        }
-
         .item {
             margin: 8px;
             padding: 6px;
@@ -179,19 +175,19 @@
         <section id="Top250Page">
             <div class="ct">
                 <!--<div class="item">-->
-                    <!--<a href="#">-->
-                        <!--<div class="cover">-->
-                            <!--<img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"-->
-                                 <!--alt="">-->
-                        <!--</div>-->
-                        <!--<div class="detail">-->
-                            <!--<h2><span class="name">霸王别姬</span> / <span class="ori-name">霸王别姬</span></h2>-->
-                            <!--<div class="extra"><span class="score">9.3分</span> / 1000收藏</div>-->
-                            <!--<div class="extra">1994年 / 剧情、爱情</div>-->
-                            <!--<div class="extra">导演: 张艺谋</div>-->
-                            <!--<div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>-->
-                        <!--</div>-->
-                    <!--</a>-->
+                <!--<a href="#">-->
+                <!--<div class="cover">-->
+                <!--<img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"-->
+                <!--alt="">-->
+                <!--</div>-->
+                <!--<div class="detail">-->
+                <!--<h2><span class="name">霸王别姬</span> / <span class="ori-name">霸王别姬</span></h2>-->
+                <!--<div class="extra"><span class="score">9.3分</span> / 1000收藏</div>-->
+                <!--<div class="extra">1994年 / 剧情、爱情</div>-->
+                <!--<div class="extra">导演: 张艺谋</div>-->
+                <!--<div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>-->
+                <!--</div>-->
+                <!--</a>-->
                 <!--</div>-->
             </div>
             <div class="loading"><span class="iconfont icon-loading"></span></div>
@@ -432,28 +428,56 @@
         var App = {
             init: function () {
                 this.bind()
+                this.spa()
                 Top250Page.init()
                 UsBoxPage.init()
                 ComingSoonPage.init()
                 SearchPage.init()
             },
+
+            spa: function () {
+                var search = location.search.replace(/^\?/, '').split('=');
+                if (search[0] === 'page') {
+                    $('footer > div').eq(search[1] - 1).addClass('active')
+                        .siblings().removeClass('active')
+                    $('main > section')
+                        .hide()
+                        .eq(search[1] - 1).fadeIn()
+                } else {
+                    $('footer > div').eq(0).addClass('active')
+                        .siblings().removeClass('active')
+                    $('main > section').eq(0).show()
+                }
+            },
+
             bind: function () {
-                $('footer > div').click(function () {
+                var self = this;
+                $('footer > div').click(function (e) {
+                    if ($(this).hasClass('active')) return;
                     $(this).addClass('active')
                         .siblings().removeClass('active')
                     $('main > section')
                         .hide()
                         .eq($(this).index()).fadeIn()
+                    self.setUrl($(this).index() + 1);
+                    console.log($(this).index() + 1)
                 })
+                window.onpopstate = function () {
+                    self.spa();
+                }
                 //针对 IOS 上的 safari，目的是禁止默认的拖动事件，但允许其中某div的滚动拖拽
-                window.ontouchmove = function(e){   // 禁止window的触摸移动的默认动作之后
+                window.ontouchmove = function (e) {   // 禁止window的触摸移动的默认动作之后
                     e.preventDefault()
                 }
-                $('section').each(function(){       // 在需要滚动拖拽的部分停止冒泡
-                    this.ontouchmove = function(e){
+                $('section').each(function () {       // 在需要滚动拖拽的部分停止冒泡
+                    this.ontouchmove = function (e) {
                         e.stopPropagation()
                     }
                 })
+            },
+            setUrl: function (page) {
+                var url = location.pathname + '?page=' + page
+                history.pushState({url: url, title: document.title}, document.title, url)
             }
         }
         App.init()
