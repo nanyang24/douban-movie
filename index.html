@@ -11,12 +11,13 @@
 
 
     <title>豆瓣电影</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_455548_x68ah6a2r9gam7vi.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_455548_xdx86q8c6d6de7b9.css">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: "Microsoft Yahei", sans-serif;
         }
 
         a {
@@ -27,6 +28,7 @@
         html, body, main {
             height: 100%;
             position: relative;
+            background: #222;
         }
 
         body {
@@ -37,7 +39,7 @@
         main > section {
             height: calc(100% - 45px);
             padding: 10px;
-            background: #fff;
+            background: #222;
             overflow: scroll;
             -webkit-overflow-scrolling: touch; /*ios 上增加弹性*/
         }
@@ -51,9 +53,10 @@
         }
 
         .item {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            padding-top: 10px;
+            margin: 8px;
+            padding: 6px;
+            background: #333;
+            border-radius: 5px;
         }
 
         .item > a {
@@ -73,15 +76,21 @@
 
         .item .detail h2 {
             font-size: 16px;
+            color: #fff;
+        }
+
+        .item .detail h2 .ori-name {
+            font-size: 14px;
+            color: #666666;
         }
 
         .item .detail .extra {
-            color: #999;
+            color: #aaa;
             margin-top: 4px;
         }
 
         .item .detail .score {
-            color: #FF5722;
+            color: #ff5100;
         }
 
         footer {
@@ -89,8 +98,8 @@
             bottom: 0;
             height: 45px;
             width: 100%;
-            border-top: 1px solid #ccc;
-            background-color: #fff;
+            border-top: 1px solid #444444;
+            background-color: #222;
             display: flex;
         }
 
@@ -103,86 +112,109 @@
         }
 
         footer .active {
-            color: #FF5722;
+            color: #1AB32C;
         }
 
         footer > div > span {
             display: block;
         }
+
         .loading {
             text-align: center;
             padding-top: 10px;
             display: none;
         }
+
         .loading .iconfont {
             color: #6495ed;
             animation: 1s rotate linear infinite;
             display: inline-block;
         }
+
         @keyframes rotate {
-            0% {transform: rotate(0deg);}
-            100% {transform: rotate(360deg);}
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
+        section .search-area {
+            color: #333;
+            padding: 10px 5px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        }
+
+        section .search-area input {
+            width: calc(100% - 50px);
+            padding: 9px;
+            background-color: #eee;
+            border: none;
+            border-radius: 2px;
+            box-shadow: none;
+            outline: none;
+        }
+
+        section .search-area .button {
+            position: absolute;
+            right: 1px;
+            padding: 10px 10px;
+            background: #1AB32C;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .unfound {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <main>
         <section id="Top250Page">
             <div class="ct">
-                <div class="item">
-                    <a href="#">
-                        <div class="cover">
-                            <img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"
-                                 alt="">
-                        </div>
-                        <div class="detail">
-                            <h2>霸王别姬</h2>
-                            <div class="extra"><span class="score">9.3分</span> / 1000收藏</div>
-                            <div class="extra">1994 / 剧情、爱情</div>
-                            <div class="extra">导演: 张艺谋</div>
-                            <div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="#">
-                        <div class="cover">
-                            <img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"
-                                 alt="">
-                        </div>
-                        <div class="detail">
-                            <h2>霸王别姬</h2>
-                            <div class="extra"><span class="score">9.3分</span> / 1000收藏</div>
-                            <div class="extra">1994 / 剧情、爱情</div>
-                            <div class="extra">导演: 张艺谋</div>
-                            <div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="#">
-                        <div class="cover">
-                            <img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"
-                                 alt="">
-                        </div>
-                        <div class="detail">
-                            <h2>霸王别姬</h2>
-                            <div class="extra"><span class="score">9.3分</span> / 1000收藏</div>
-                            <div class="extra">1994 / 剧情、爱情</div>
-                            <div class="extra">导演: 张艺谋</div>
-                            <div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>
-                        </div>
-                    </a>
-                </div>
+                <!--<div class="item">-->
+                    <!--<a href="#">-->
+                        <!--<div class="cover">-->
+                            <!--<img src="http://img7.doubanio.com/view/movie_poster_cover/spst/public/p513344864.png"-->
+                                 <!--alt="">-->
+                        <!--</div>-->
+                        <!--<div class="detail">-->
+                            <!--<h2><span class="name">霸王别姬</span> / <span class="ori-name">霸王别姬</span></h2>-->
+                            <!--<div class="extra"><span class="score">9.3分</span> / 1000收藏</div>-->
+                            <!--<div class="extra">1994年 / 剧情、爱情</div>-->
+                            <!--<div class="extra">导演: 张艺谋</div>-->
+                            <!--<div class="extra">主演: 张艺谋、张艺谋、张艺谋</div>-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
             </div>
             <div class="loading"><span class="iconfont icon-loading"></span></div>
         </section>
-        <section id="UsBoxPage"></section>
-        <section id="UsBoxPage"></section>
+        <section id="UsBoxPage">
+            <div class="ct"></div>
+            <div class="loading"><span class="iconfont icon-loading"></span></div>
+        </section>
+        <section id="ComingSoonPage">
+            <div class="ct"></div>
+            <div class="loading"><span class="iconfont icon-loading"></span></div>
+        </section>
+        <section id="SearchPage">
+            <div class="search-area">
+                <input type="text" placeholder="输入电影关键字"><span class="button">搜索</span>
+            </div>
+            <div class="loading"><span class="iconfont icon-loading"></span></div>
+            <div class="search-result">
+            </div>
+        </section>
     </main>
     <footer>
-        <div>
+        <div class="active">
             <span class="iconfont icon-billboard"></span>
             <span>Top250</span>
         </div>
@@ -191,11 +223,17 @@
             <span>北美榜</span>
         </div>
         <div>
+            <span class="iconfont icon-comingsoon"></span>
+            <span>即将上映</span>
+        </div>
+        <div>
             <span class="iconfont icon-search"></span>
             <span>搜索</span>
         </div>
     </footer>
     <script>
+        //4个部分 Top250Page、UsBoxPage、ComingSoonPage、SearchPage
+
         var Top250Page = {
             init: function () {
                 this.$page = $('#Top250Page');
@@ -240,7 +278,97 @@
                     }
                     callback && callback(ret);
                 }).fail(function () {
-                    console.log('数据异常')
+                    console.log('Top250 数据异常')
+                }).always(function () {
+                    self.isLoading = false;
+                    self.$page.find('.loading').hide();
+                })
+            },
+            render: function (data) {
+                var self = this
+                data.subjects.forEach(function (movie) {
+                    self.$ct.append(Center.createNode(movie))
+                })
+            }
+        }
+        var UsBoxPage = {
+            init: function () {
+                this.$page = $('#UsBoxPage');
+                this.$ct = this.$page.find('.ct');
+                this.start();
+            },
+            start: function () {
+                var self = this;
+                this.getData(function (data) {
+                    self.render(data);
+                })
+            },
+            getData: function (callback) {
+                var self = this;
+                this.$page.find('.loading').show();
+                $.ajax({
+                    url: '//api.douban.com/v2/movie/us_box',
+                    dataType: 'jsonp'
+                }).done(function (ret) {
+                    callback && callback(ret);
+                }).fail(function () {
+                    console.log('Usbox 数据异常')
+                }).always(function () {
+                    self.$page.find('.loading').hide();
+                })
+            },
+            render: function (data) {
+                var self = this;
+                data.subjects.forEach(function (item) {
+                    self.$ct.append(Center.createNode(item.subject))
+                })
+            }
+        }
+
+        var ComingSoonPage = {
+            init: function () {
+                this.$page = $('#ComingSoonPage');
+                this.$ct = this.$page.find('.ct')
+                this.index = 0;
+                this.isFinish = false;
+                this.isLoading = false;
+                this.bind()
+                this.start()
+            },
+            bind: function () {
+                var self = this;
+                this.$page.scroll(function () {
+                    if (!self.isFinish && Center.isToBottom(self.$page, self.$ct)) {
+                        self.start();
+                    }
+                })
+            },
+            start: function () {
+                var self = this
+                this.getData(function (data) {
+                    self.render(data)
+                })
+            },
+            getData: function (callback) {
+                var self = this;
+                if (this.isLoading) return;
+                this.isLoading = true;
+                this.$page.find('.loading').show()
+                $.ajax({
+                    url: '//api.douban.com/v2/movie/coming_soon',
+                    data: {
+                        start: self.index || 0
+                    },
+                    dataType: 'jsonp'
+                }).done(function (ret) {
+                    console.log(ret)
+                    self.index += 20;
+                    if (self.index >= ret.total) {
+                        self.isFinish = true
+                    }
+                    callback && callback(ret);
+                }).fail(function () {
+                    console.log('ComingSoon 数据异常')
                 }).always(function () {
                     self.isLoading = false;
                     self.$page.find('.loading').hide();
@@ -254,13 +382,60 @@
             }
         }
 
+        var SearchPage = {
+            init: function () {
+                this.$page = $('#SearchPage')
+                this.$input = this.$page.find('input')
+                this.$btn = this.$page.find('.button')
+                this.$ct = this.$page.find('.search-result')
+                this.bind()
+            },
+            bind: function () {
+                var self = this;
+                this.$btn.click(function () {
+                    self.$ct.empty()
 
+                    self.getData(self.$input.val(), function (data) {
+                        self.render(data);
+                    })
+                })
+            },
+            getData: function (val, callback) {
+                var self = this;
+                this.$page.find('.loading').show()
+                $.ajax({
+                    url: '//api.douban.com/v2/movie/search',
+                    data: {
+                        q: val
+                    },
+                    dataType: 'jsonp'
+                }).done(function (ret) {
+                    callback && callback(ret);
+                }).fail(function () {
+                    console.log('Search 数据异常')
+                }).always(function () {
+                    self.$page.find('.loading').hide()
+                })
+            },
+            render: function (data) {
+                var self = this;
+                if (data.total === 0) {
+                    var result = '<div class="unfound">未找到结果，请重新输入</div>'
+                    self.$ct.append(result);
+                }
+                data.subjects.forEach(function (item) {
+                    self.$ct.append(Center.createNode(item))
+                })
+            }
+        }
+        // App管理中心
         var App = {
             init: function () {
                 this.bind()
                 Top250Page.init()
-//                UsBoxPage.init()
-//                UsBoxPage.init()
+                UsBoxPage.init()
+                ComingSoonPage.init()
+                SearchPage.init()
             },
             bind: function () {
                 $('footer > div').click(function () {
@@ -270,16 +445,24 @@
                         .hide()
                         .eq($(this).index()).fadeIn()
                 })
+                //针对 IOS 上的 safari，目的是禁止默认的拖动事件，但允许其中某div的滚动拖拽
+                window.ontouchmove = function(e){   // 禁止window的触摸移动的默认动作之后
+                    e.preventDefault()
+                }
+                $('section').each(function(){       // 在需要滚动拖拽的部分停止冒泡
+                    this.ontouchmove = function(e){
+                        e.stopPropagation()
+                    }
+                })
             }
         }
         App.init()
 
-
+        //重用模块
         var Center = {
             isToBottom: function ($viewport, $content) {
                 return ($viewport.height() + $viewport.scrollTop() + 25 > $content.height())
             },
-
             createNode: function (movie) {
                 var template = `<div class="item">
                              <a href="#">
@@ -287,8 +470,8 @@
                                      <img src="" alt="">
                                 </div>
                                 <div class="detail">
-                                    <h2></h2>
-                                    <div class="extra"><span class="score"></span>分 / <span class="collect"></span>收藏</div>
+                                    <h2><span class="name"></span> / <span class="ori-name"></span></h2>
+                                    <div class="extra"><span class="score"></span> / <span class="collect"></span>收藏</div>
                                     <div class="extra"><span class="year"></span> / <span class="type"></span></div>
                                     <div class="extra">导演: <span class="director"></span></div>
                                     <div class="extra">主演: <span class="actor"></span></div>
@@ -298,10 +481,11 @@
                 var $node = $(template)
                 $node.find('a').attr('href', movie.alt);
                 $node.find('.cover img').attr('src', movie.images.medium);
-                $node.find('.detail h2').text(movie.title);
-                $node.find('.score').text(movie.rating.average);
+                $node.find('.detail h2 .name').text(movie.title);
+                $node.find('.detail h2 .ori-name').text(movie.original_title);
+                $node.find('.score').text(movie.rating.average + '分');
                 $node.find('.collect').text(movie.collect_count);
-                $node.find('.year').text(movie.year);
+                $node.find('.year').text(movie.year + '年');
                 $node.find('.type').text(movie.genres.join(' / '));
                 $node.find('.director').text(function () {
                     var directorsArr = [];
