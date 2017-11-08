@@ -22,10 +22,10 @@ const Tab = (() => {
                 self.spa();
             }
             //针对 IOS 上的 safari，目的是禁止默认的拖动事件，但允许其中某div的滚动拖拽
-            window.ontouchmove = (e) => {   // 禁止window的触摸移动的默认动作之后
+            window.ontouchmove = function (e) {   // 禁止window的触摸移动的默认动作之后
                 e.preventDefault()
             }
-            $('section').each(() => {       // 在需要滚动拖拽的部分停止冒泡
+            $('section').each(function () {       // 在需要滚动拖拽的部分停止冒泡
                 this.ontouchmove = (e) => {
                     e.stopPropagation()
                 }
