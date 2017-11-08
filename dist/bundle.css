@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+html, body, main {
+    height: 100%;
+    position: relative;
+    background: #222;
+}
+
+body {
+    font-size: 12px; /*移动端常用字体大小*/
+    line-height: 1.2;
+}
+
+main > section {
+    height: calc(100% - 45px);
+    padding: 10px;
+    background: #222;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; /*ios 上增加弹性*/
+}
+
+main > section {
+    display: none;
+}
+
+.item {
+    margin: 8px;
+    padding: 6px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.item > a {
+    display: block;
+    display: flex;
+}
+
+.item .cover,
+.item .cover img {
+    width: 70px;
+}
+
+.item .detail {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.item .detail h2 {
+    font-size: 16px;
+    color: #fff;
+}
+
+.item .detail h2 .ori-name {
+    font-size: 14px;
+    color: #666666;
+}
+
+.item .detail .extra {
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.item .detail .score {
+    color: #ff5100;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    border-top: 1px solid #444444;
+    background-color: #222;
+    display: flex;
+}
+
+footer > div {
+    flex: 1;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+    padding-top: 6px;
+}
+
+footer .active {
+    color: #1AB32C;
+}
+
+footer > div > span {
+    display: block;
+}
+
+.loading {
+    text-align: center;
+    padding-top: 10px;
+    display: none;
+}
+
+.loading .iconfont {
+    color: #6495ed;
+    animation: 1s rotate linear infinite;
+    display: inline-block;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+section .search-area {
+    color: #333;
+    padding: 10px 5px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+section .search-area input {
+    width: calc(100% - 50px);
+    padding: 9px;
+    background-color: #eee;
+    border: none;
+    border-radius: 2px;
+    box-shadow: none;
+    outline: none;
+}
+
+section .search-area .button {
+    position: absolute;
+    right: 1px;
+    padding: 10px 10px;
+    background: #1AB32C;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.unfound {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
