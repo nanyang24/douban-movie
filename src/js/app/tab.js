@@ -25,7 +25,7 @@ const Tab = (function () {
             window.ontouchmove = function (e) {   // 禁止window的触摸移动的默认动作之后
                 e.preventDefault()
             }
-            $('section').each(function () {       // 在需要滚动拖拽的部分停止冒泡
+            self.$panels.each(function () {       // 在需要滚动拖拽的部分停止冒泡
                 this.ontouchmove = function (e) {
                     e.stopPropagation()
                 }
