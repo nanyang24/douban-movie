@@ -1,4 +1,4 @@
-const Tab = (() => {
+const Tab = (function () {
     function tab(tabs, panels) {
         this.$tabs = tabs;//$('footer > div')
         this.$panels = panels;//$('main > section')
@@ -26,7 +26,7 @@ const Tab = (() => {
                 e.preventDefault()
             }
             $('section').each(function () {       // 在需要滚动拖拽的部分停止冒泡
-                this.ontouchmove = function(e) {
+                this.ontouchmove = function (e) {
                     e.stopPropagation()
                 }
             })
