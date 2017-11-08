@@ -26,7 +26,7 @@ const Tab = (() => {
                 e.preventDefault()
             }
             $('section').each(function () {       // 在需要滚动拖拽的部分停止冒泡
-                this.ontouchmove = (e) => {
+                this.ontouchmove = function(e) {
                     e.stopPropagation()
                 }
             })
