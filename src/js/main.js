@@ -7,9 +7,9 @@ import {Tab} from './app/tab'
 import  '../css/style.css'
 
 // 初始化
+Tab.init($('footer > div'), $('main > section'));
 Top250Page.init();
 UsBoxPage.init();
 ComingSoonPage.init();
 SearchPage.init();
-Tab.init($('footer > div'), $('main > section'));
 
