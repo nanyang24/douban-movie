@@ -1,6 +1,6 @@
 {
   "name": "web-douban-movie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A doubanAPI movies entrance",
   "main": "./src/js/main.js",
   "scripts": {
